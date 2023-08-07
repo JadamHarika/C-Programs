@@ -1,0 +1,139 @@
+4)#SORTED ARRAY OR NOT
+    #include<stdio.h>
+int main()
+{
+    int flag=0,n,a[20];
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(int i=0;i<n-1;i++)
+    {
+        if(a[i]<=a[i+1])
+        {
+            flag=0;
+        }
+        else{
+            flag=1;
+            break;
+        }
+    }
+    if(flag==1)
+    {
+        printf("it is  not sorted");
+    }
+    else{
+        printf("it is sorted");
+    }
+}
+#REMOVING DUPLICATES IN AN ARRAY AND THE COUNT
+    #include<stdio.h>
+int main()
+{
+    int n,a[20],count=0;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(int i=0;i<n;i++)
+     {
+         for(int j=i+1;j<n;j++)
+         {
+             if(a[i]==a[j])
+             {
+                 
+                 for(int k=j;k<n;k++)
+                 {
+                     a[k]=a[k+1];
+                 }
+        
+             j--;
+             n--;
+             }
+         }
+            
+    }
+    for(int i=0;i<n;i++)
+    {
+        count++;
+        printf("%d ",a[i]);
+    }
+    printf("\n%d",count);
+}
+#optimal approach
+   #include<stdio.h>
+int main()
+{
+    int n,a[20],count=0;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    int i=0;
+    for(int j=1;j<n;j++)
+    {
+        if(a[j]!=a[i])
+        {
+            a[i+1]=a[j];
+            i++;
+        }
+    }
+    
+    printf("%d",i+1);
+}
+5)LEFT ROTATION OF AN ARRAY BY ONE PLACE
+    #include<stdio.h>
+int main()
+{
+    int n,a[20],temp;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    temp=a[0];
+   for(int i=0;i<n-1;i++)
+   {
+       a[i]=a[i+1];
+   }
+   a[n-1]=temp;
+   for(int i=0;i<n;i++)
+   {
+       printf("%d ",a[i]);
+   }
+   
+}
+6)LEFT ROTATION OF ARRAY BY K PLACE
+    #include<stdio.h>
+int main()
+{
+    int n,a[20],temp[20],d;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    scanf("%d",&d);
+    for(int i=0;i<d;i++)
+    {
+        temp[i]=a[i];
+    }
+   for(int i=d;i<n;i++)
+    {
+        a[i-d]=a[i];
+    }
+    int j=0;
+    for(int i=n-d;i<n;i++)
+    {
+        a[i]=temp[j];//temp[i-(n-d)]
+        j++;
+    }
+    for(int i=0;i<n;i++)
+    {
+        printf("%d",a[i]);
+    }
+   
+}
