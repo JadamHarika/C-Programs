@@ -1,0 +1,39 @@
+# MOVING ALL THE ZEORES AT THE END OF THE ARRAY
+    #include<stdio.h>
+int main()
+{
+    int n,a[20],temp[20],count=0,j=0;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]!=0)
+        {
+            temp[j]=a[i];
+            count++;
+            j++;
+        }
+    }
+    printf("%d\n",count);
+   /* for(int i=0;i<count;i++)
+    {
+        printf("%d",temp[i]);
+    }*/
+   
+    for(int i=0;i<count;i++)
+    {
+        a[i]=temp[i];
+    }
+    for(int i=count;i<n;i++)
+    {
+        a[i]=0;
+    }
+    
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",a[i]);
+    }
+}
